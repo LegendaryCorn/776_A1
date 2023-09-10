@@ -48,13 +48,13 @@ int main()
 
   srand(time(NULL));
   solutionBase = randomSolution();
-  fitnessBase = eval_hard(solutionBase);
+  fitnessBase = eval(solutionBase);
   int noNewSolutions = 0;
 
   while(noNewSolutions < 100000){
 
     solutionNew = modify(solutionBase);
-    fitnessNew = eval_hard(solutionNew);
+    fitnessNew = eval(solutionNew);
 
     // For debugging
     //cout << fitnessBase << endl;
@@ -82,6 +82,35 @@ int main()
     }
 
   }
+  
+  /*
+  long count = 0;
+  while(fitnessBase < 100){
+
+    solutionNew = new int[100];
+    for(int i = 0; i < 100; i++){
+      if(i < 30)
+        solutionNew[i] = rand() % 2;
+      else
+        solutionNew[i] = solutionBase[i];
+    }
+
+    if(fitnessNew >= fitnessBase){
+      delete solutionBase;
+      solutionBase = solutionNew;
+      fitnessBase = fitnessNew;
+    }
+
+    else{
+      delete solutionNew;
+      noNewSolutions++;
+    }      
+    
+    cout << count << endl;
+    count++;
+  }
+  */
+  
 
   // Output final chromosome
   string chrom = "";
