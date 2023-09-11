@@ -10,7 +10,7 @@
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}",
-                "eval1.o"
+                "eval.o"
             ],
             "options": {
                 "cwd": "${fileDirname}"
